@@ -1,0 +1,57 @@
+<!-- aus irgendeinem grund muss jede html datei manuell in
+ba2020_564925\myvenv\Lib\site-packages\django\contrib\admin\templates
+ba2020_564925\myvenv\Lib\site-packages\django\contrib\auth\templates\game
+hinzugefügt bzw überschrieben werden, damit sie aktuell ist -->
+
+<html>
+<head>
+	<title>Character Creation</title>
+</head>
+<body>
+<h2>Welcome new adventurer! It&#39;s time to introduce yourself</h2>
+
+<p>&nbsp;</p>
+
+<p>First, tell me your name.&nbsp;<br />
+<input maxlength="20" name="character_name" size="20" type="text" /></p>
+
+<p>&nbsp;</p>
+
+<p>Now show me how capable you are of these skills.&nbsp;</p>
+
+<p>Strength:&nbsp;</p>
+
+<p><select id="strength" name="abilities" size="3"><option value="1"></option><option value="2"></option><option value="3"></option><option selected="selected" value="4"></option><option value="5"></option><option value="6"></option><option value="7"></option><option value="8"></option><option value="9"></option><option value="10"></option><option value="11"></option><option value="12"></option></select></p>
+
+<p>&nbsp;</p>
+
+<p>Magic:&nbsp;</p>
+
+<p><select id="magic" name="abilities" size="3"><option value="1"></option><option value="2"></option><option value="3"></option><option selected="selected" value="4"></option><option value="5"></option><option value="6"></option><option value="7"></option><option value="8"></option><option value="9"></option><option value="10"></option><option value="11"></option><option value="12"></option></select></p>
+
+<p>&nbsp;</p>
+
+<p>Knowledge:&nbsp;</p>
+
+<p><select id=knowledge" name="abilities" size="3"><option value="1"></option><option value="2"></option><option value="3"></option><option selected="selected" value="4"></option><option value="5"></option><option value="6"></option><option value="7"></option><option value="8"></option><option value="9"></option><option value="10"></option><option value="11"></option><option value="12"></option></select></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>Lastly, choose what most suits your vision of yourself.&nbsp;</p>
+
+
+		<img src="pictures/character1.jpg">
+<input id="character1" name="characters" type="radio" /><br /> <br> <br> <br> <br> <br>
+		<img src="character2.jpg">
+	<input id="pictures/character2" name="characters" type="radio" /><br /> <br> <br> <br> <br> <br>
+		<img src="character3.jpg">
+	<input id="pictures/character3" name="characters" type="radio" /></p>
+
+
+<p>&nbsp;</p>
+
+<p>Now, are you ready to begin your story, adventurer?&nbsp; &nbsp;&nbsp;<input name="start_button" type="button" value="I'm ready!" /></p>
+</body>
+</html>
