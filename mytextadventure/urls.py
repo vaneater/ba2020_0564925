@@ -19,4 +19,9 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('game.urls')),
+    path('page_1/', include('game.urls')),
+    path('page_2_choice_follow/', include('game.urls')),
+    path('page_2_choice_run/', include('game.urls')),
+    path('page_2_choice_shout/', include('game.urls')),
+
 ]
