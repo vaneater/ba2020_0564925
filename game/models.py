@@ -11,7 +11,7 @@ class Character(models.Model):
     # strength = models.ForeignKey()
     # magic = models.ForeignKey()
     # knowledge = models.ForeignKey()
-    # characzer = models.ForeignKey()
+    # character_name = models.ForeignKey()
 
 
     def start(self):

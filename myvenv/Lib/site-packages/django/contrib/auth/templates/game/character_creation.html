@@ -1,11 +1,18 @@
+{% load static %}
+
 <!-- aus irgendeinem grund muss jede html datei manuell in
 ba2020_564925\myvenv\Lib\site-packages\django\contrib\admin\templates
 ba2020_564925\myvenv\Lib\site-packages\django\contrib\auth\templates\game
 hinzugefügt bzw überschrieben werden, damit sie aktuell ist -->
 
+
 <html>
 <head>
 	<title>Character Creation</title>
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="{% static 'css/game.css' %}">
+	<link href="//fonts.googleapis.com/css?family=Alata&subset=latin,latin-ext" rel="stylesheet" type="text/css">
 </head>
 <body>
 <h2>Welcome new adventurer! It&#39;s time to introduce yourself</h2>
@@ -46,8 +53,14 @@ hinzugefügt bzw überschrieben werden, damit sie aktuell ist -->
 <p>&nbsp;</p>
 
 <p>Now, are you ready to begin your story, adventurer?&nbsp; &nbsp;&nbsp;
+
+<h2><a type="button" href="{% url 'page_1' %}">I'm ready!</a></h2>
+
+
+<!--
 	<form>
-		<input type="button" value="I'm ready!" onclick="'page_1.html'" />
+		<input type="button" value="I'm ready!" onclick="{% url 'page_1' %}"" />
 	</form>
+-->
 </body>
 </html>

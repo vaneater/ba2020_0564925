@@ -1,3 +1,12 @@
+{% load static %}
+
+<head>
+	<title>Chapter 1</title>
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="{% static 'css/game.css' %}">
+	<link href="//fonts.googleapis.com/css?family=Alata&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+</head>
 <h2>Your adventure has begun!</h2>
 <p>&nbsp;</p>
 
@@ -7,9 +16,22 @@
 <p>schock absatz, was soll man machen omg?</p>
 <p>&nbsp;</p>
 
+<div>
+	<!-- noch einfügen, dass es genau DEIN einer character ist -->
+	<p> Stats: {{character.character_name}} </p>
+	<p> Strength: {{character.strength}} </p>
+	<p> Magic: {{character.magic}} </p>
+	<p> Knowledge: {{character.knowledge}} </p>
+</div>
+
 <p>Now, what are you going to do, adventurer?&nbsp;</p>
 
 <p>
+	<h2><a type="button" href="{% url 'page_2_choice_follow' %}">Follow the voice</a></h2>
+	<h2><a type="button" href="{% url 'page_2_choice_run' %}">Run in the opposite direction</a></h2>
+	<h2><a type="button" href="{% url 'page_2_choice_shout' %}">Shout back at the voice</a></h2>
+
+<!--
     <form>
 		<input type="button" value="Follow the voice" onclick="'page_2_choice_follow.html'" />
 	</form>
@@ -19,4 +41,5 @@
     <form>
 		<input type="button" value="Shout back at the voice" onclick="'page_2_choice_shout.html'" />
 	</form>
+-->
 </p>

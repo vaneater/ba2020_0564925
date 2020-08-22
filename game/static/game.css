@@ -1,0 +1,20 @@
+body {
+  color: white;
+  background-color: black;
+  font-size: 1.6em;
+  margin-left: 30%;
+  margin-right:30%;
+  padding: 20px;
+}
+
+button{
+  margin-left: 10px;
+  margin-top: 15px;
+  height: 22px;
+  font-size: 14px;
+}
+
+h1 a, h2 a {
+    color: purple;
+    font-family: 'Alata';
+}

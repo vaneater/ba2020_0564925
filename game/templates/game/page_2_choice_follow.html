@@ -1,3 +1,12 @@
+{% load static %}
+
+<head>
+	<title>Chapter 2</title>
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="{% static 'css/game.css' %}">
+	<link href="//fonts.googleapis.com/css?family=Alata&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+</head>
 <h2>You have made your choice!</h2>
 <p>&nbsp;</p>
 
@@ -7,9 +16,22 @@
 <p>GIRL absatz, was soll man machen omg?</p>
 <p>&nbsp;</p>
 
+<div>
+	<!-- noch einfügen, dass es genau DEIN einer character ist -->
+	<p> Stats: {{character.character_name}} </p>
+	<p> Strength: {{character.strength}} </p>
+	<p> Magic: {{character.magic}} </p>
+	<p> Knowledge: {{character.knowledge}} </p>
+</div>
+
 <p>Now, what are you going to do, adventurer?&nbsp;</p>
 
 <p>
+	<h2><a type="button" href="{% url 'page_3_choice_help' %}">Help the girl</a></h2>
+	<h2><a type="button" href="{% url 'page_3_choice_ask' %}">Ask her, how this situation came to be</a></h2>
+	<h2><a type="button" href="{% url 'page_3_choice_leave' %}">Leave her be</a></h2>
+
+<!--
     <form>
 		<input type="button" value="Help the girl" onclick="'page_3_choice_help.html'" />
 	</form>
@@ -19,4 +41,5 @@
     <form>
 		<input type="button" value="Leave her be" onclick="'page_3_choice_leave.html'" />
 	</form>
+-->
 </p>
