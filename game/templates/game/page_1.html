@@ -10,19 +10,39 @@
 <h2>Your adventure has begun!</h2>
 <p>&nbsp;</p>
 
-<p>intro blablabla</p>
-<p>spannender text<br />blabla</p>
-<p>absatz am ende der so wowowow ist</p>
-<p>schock absatz, was soll man machen omg?</p>
-<p>&nbsp;</p>
+<div name="story">
+	<p> Your ears are buzzing. It hurts. </p>
+	<p> Different sounds enter your mind, as high pitched noise is starting to fade away. There is the rustling of the trees.  </p>
+	Their branches cracking in a strong breeze. You hear birds chirping their favorite songs. They sounds so peacful and happy.
+	<p> A smell enters your nose. Green grass, muddy earth, musty woods. You slowly open your eyes, adjusting to the light. </p>
+	<p> Yeah, you are deep deep inside a forest. But... How did you end up here? You are trying to remember the last thing you did. </p>
+	Sitting at a table. Hands rushing through keys. A big spacious room, full with other people.
+	<p> A lecture. You were sitting inside a room listening attending your class. But now... How did this happen? </p>
+	<p> You look around, trying to find something, anything that may help you get a hold of this situation.
+		But there's only trees. Not a sign of civilization. </p>
+	<p> Looking down, you notice a sword and a book lying to each of your sides. There is also an old backpack,
+		and a scabbard, probably for the sword.</p>
+	<p> The book looks old als worn. You flip through the pages, but you can't understand the language. The writing doesn't even look familiar.
+		There are a few pictures here and there, showing someone in weird positions... getting hurt?
+		Just what could this be? </p>
+	<p> You pick up the sword. It doesn't feel as heavy in your hands as you thought it would.
+		There is some kind of inscription on the blade, in that same unfamiliar writing. </p>
+	<p> Suddenly you see a flock of birds flying out of the forest from your right. Something must have startled them.
+		Thinking nothing of it, you try to inspect the two items more, but right then you hear a scream.
+		Again, you hear a loud "HELP"...</p>
+	<p>	The voice doesn't seem to be that far away. </p>
+</div>
 
-<div>
+
+<div name="stats">
 	<!-- noch einfügen, dass es genau DEIN einer character ist -->
 	<p> Stats: {{character.character_name}} </p>
 	<p> Strength: {{character.strength}} </p>
 	<p> Magic: {{character.magic}} </p>
 	<p> Knowledge: {{character.knowledge}} </p>
 </div>
+
+<div name="choices">
 
 <p>Now, what are you going to do, adventurer?&nbsp;</p>
 
@@ -31,6 +51,7 @@
 	<h2><a type="button" href="{% url 'page_2_choice_run' %}">Run in the opposite direction</a></h2>
 	<h2><a type="button" href="{% url 'page_2_choice_shout' %}">Shout back at the voice</a></h2>
 
+</div>
 <!--
     <form>
 		<input type="button" value="Follow the voice" onclick="'page_2_choice_follow.html'" />

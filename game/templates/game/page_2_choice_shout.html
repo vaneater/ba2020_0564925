@@ -1,7 +1,7 @@
 {% load static %}
 
 <head>
-	<title>Chapter 2</title>
+	<title>Chapter 2 - Shout</title>
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 	<link rel="stylesheet" href="{% static 'css/game.css' %}">
@@ -10,13 +10,29 @@
 <h2>You have made your choice!</h2>
 <p>&nbsp;</p>
 
-<p>konsequenzen SHOUT</p>
-<p>spannender text<br />blabla</p>
-<p>absatz am ende der so wowowow ist</p>
-<p>MONSTER absatz, was soll man machen omg?</p>
-<p>&nbsp;</p>
+<div name="story">
+	<p> You have decided to shout back, answering the screams. Is someone in danger? Why are they screaming? </p>
+	<p> But there is no answer. Just what was that supposed to be anyways? Now you feel stupid for having screamed into these woods. </p>
+	<p> Suddenly, you hear some rustling coming from your right. Is someone coming your way? Maybe the person from a few moments ago.
+		This feels weird though... Weirdly dangerous. So you start to pack up your new found things.
+		It feels weirdly familiar, tossing the backpack with the book inside over your shoulder, and securing the scabbard around your waist.
+		Is this really the first time you are handling a sword like this? </p>
+	<p>	You hear footsteps coming closer and closer, there is no time to think. Someone... No, something is coming. Coming for you.
+		You quickly turn and jog to the opposite direction the steps are came from.
+		It's not easy making your way through the forest, trying not to trip on tree roots, or getting stuck in thick bushes. </p>
+	<p> Eventually you reach a clearing. It's empty, so you continue your way. The wind is getting stronger,
+		and the trees around you start swaying uncontrollably. The rustling and cracking of the branches sounds scary.
+		It doesn't seem like you are safe just yet... </p>
+	<p> You have no time to think about that, as you hear a roar coming from behind you.
+		You turn around, seeing a monster emerging from the woods. You halt, as it slowly walks towards you. </p>
+	<p> It is not safe, here it's not safe, you are not safe. This... thing is out for blood.
+		This monster, something you only know from fantasy stories, is out to get you. This is definitely not good, no no no. </p>
+	<p> Panicking you look around. What are you supposed to do? What CAN you do?  </p>
+	<p> And then you feel warmth. Your back... the backpack, no book? And also on your side... the sword.
+		It seems like your choices are very limited. </p>
+</div>
 
-<div>
+<div name="stats">
 	<!-- noch einfügen, dass es genau DEIN einer character ist -->
 	<p> Stats: {{character.character_name}} </p>
 	<p> Strength: {{character.strength}} </p>
@@ -24,13 +40,15 @@
 	<p> Knowledge: {{character.knowledge}} </p>
 </div>
 
+<div name="choices">
+
 <p>Now, what are you going to do, adventurer?&nbsp;</p>
 
 <p>
-	<h2><a type="button" href="{% url 'page_3_choice_help' %}">Help the girl</a></h2>
-	<h2><a type="button" href="{% url 'page_3_choice_ask' %}">Ask her, how this situation came to be</a></h2>
-	<h2><a type="button" href="{% url 'page_3_choice_leave' %}">Leave her be</a></h2>
-
+	<h2><a type="button" href="{% url 'page_3_choice_help' %}">Use the book</a></h2>
+	<h2><a type="button" href="{% url 'page_3_choice_ask' %}">Use the sword</a></h2>
+	<h2><a type="button" href="{% url 'page_3_choice_leave' %}">Run away</a></h2>
+</div>
 <!--
     <form>
 		<input type="button" value="Help the girl" onclick="'page_3_choice_help.html'" />
