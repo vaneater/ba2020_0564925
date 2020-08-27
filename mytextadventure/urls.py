@@ -19,9 +19,18 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('game.urls')),
-    path('page_1/', include('game.urls')),
-    path('page_2_choice_follow/', include('game.urls')),
-    path('page_2_choice_run/', include('game.urls')),
-    path('page_2_choice_shout/', include('game.urls')),
+ #   path('page_1/', include('game.urls')),
+  #  path('page_1/page_2_choice_follow/', include('game.urls')),
+   # path('page_1/page_2_choice_run/', include('game.urls')),
+#    path('page_1/page_2_choice_shout/', include('game.urls')),
+ #   path('page_2_choice_follow/page_3_choice_help/', include('game.urls')),
+  #  path('page_2_choice_follow/page_3_choice_ask/', include('game.urls')),
+#    path('page_2_choice_follow/page_3_choice_leave/', include('game.urls')),
+ #   path('page_2_choice_run/page_3_choice_help/', include('game.urls')),
+  #  path('page_2_choice_run/page_3_choice_ask/', include('game.urls')),
+#    path('page_2_choice_run/page_3_choice_leave/', include('game.urls')),
+ #   path('page_2_choice_shout/page_3_choice_help/', include('game.urls')),
+  #  path('page_2_choice_shout/page_3_choice_ask/', include('game.urls')),
+#    path('page_2_choice_shout/page_3_choice_leave/', include('game.urls')),
 
 ]
