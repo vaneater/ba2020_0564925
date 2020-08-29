@@ -11,53 +11,70 @@ hinzugefügt bzw überschrieben werden, damit sie aktuell ist -->
 	<title>Character Creation</title>
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-	<link rel="stylesheet" href="{% static 'css/game.css' %}">
+	<!-- <link rel="stylesheet" href="{% static 'css/game.css' %}"> -->
+	<link rel="stylesheet" type="text/css" href="../../static/game.css">
 	<link href="//fonts.googleapis.com/css?family=Alata&subset=latin,latin-ext" rel="stylesheet" type="text/css">
 </head>
-<body>
+
+<div>
 <h2>Welcome new adventurer! It&#39;s time to introduce yourself</h2>
 
 <p>&nbsp;</p>
 
-<p>First, tell me your name.&nbsp;<br />
-<input maxlength="20" name="character_name" size="20" type="text" /></p>
+<p>First, tell me your name.</p>
+<div class="character_name"><input maxlength="20" name="character_name" size="20" type="text" /></div>
 
 <p>&nbsp;</p>
 
 <p>Now show me how capable you are of these skills.&nbsp;</p>
-<p>Strength:&nbsp;</p>
+	<label class="quantity" id="quantity" name="quantity" min="1" max="16" />
+		<p>Strength:&nbsp;</p>
+			<div class="strength_value"><input type="number" id="strength_value" name="strength_value" value="1" max="16" /> </div>
+			<p>&nbsp;</p>
 
-<p><input type="number" id="strength_value" name="quantity" min="1" max="16" /> </p>
-<p>&nbsp;</p>
+		<p>Magic:&nbsp;</p>
+	<div class="magic_value"><input type="number" id="magic_value" name="magic_value" value="1" max="16" /> </div>
+		<p>&nbsp;</p>
 
-<p>Magic:&nbsp;</p>
-<p><input type="number" id="magic_value" name="quantity" min="1" max="16" /> </p>
-<p>&nbsp;</p>
-
-<p>Knowledge:&nbsp;</p>
-<p><input type="number" id="knowledge_value" name="quantity" min="1" max="16" /> </p>
+		<p>Knowledge:&nbsp;</p>
+	<div class="knowledge_value"><input type="number" id="knowledge_value" name="knowledge_value" value="1" max="16" /> </div>
+</div>
 <p>&nbsp;</p>
 
 <p>&nbsp;</p>
 <p>Lastly, choose what most suits your vision of yourself.&nbsp;</p>
 
-
-		<img src="pictures/character1.jpg">
-<input id="character1" name="character1" type="radio" /><br /> <br> <br> <br> <br> <br>
-		<img src="pictures/character2.jpg">
-	<input id="character2" name="character2" type="radio" /><br /> <br> <br> <br> <br> <br>
-		<img src="pictures/character3.jpg">
-	<input id="character3" name="character3" type="radio" /></p>
-
-
+<div class="picture_row">
+		<input checked="checked" id="character1" type="radio" name="character" value="character1" />
+        <label class="character-cc character1" for="character1" ></label>
+        <input id="character2" type="radio" name="character" value="character2" />
+        <label class="character-cc character2"for="character2" ></label>
+		<input id="character3" type="radio" name="character" value="character3" />
+        <label class="character-cc character3"for="character3" ></label>
+</div>
+	<!--
+		<img id="character1" src="pictures/character1.png">
+		<img id="character2" src="pictures/character2.png">
+		<img id="character3" src="pictures/character3.png">
+</div>
+<div class="button_row">
+	<input id="button1" name="character1" type="radio" src="pictures/character1.png" />
+	<input id="button2" name="character2" type="radio" />
+	<input id="button3" name="character3" type="radio" />
+</div>
 <p>&nbsp;</p>
-
+-->
 <p>Now, are you ready to begin your story, adventurer?&nbsp; &nbsp;&nbsp;
 
-<h2><a type="button" href="{% url 'page_1' %}">I'm ready!</a></h2>
+<form action="{% url 'page_1' %}">
+    <input type="submit" value="I'm ready!" />
+</form>
 
 
 <!--
+
+	<h2><a type="button" href="{% url 'page_1' %}">I'm ready!</a></h2>
+
 	<form>
 		<input type="button" value="I'm ready!" onclick="{% url 'page_1' %}"" />
 	</form>

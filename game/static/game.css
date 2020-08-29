@@ -1,20 +1,57 @@
 body {
-  color: white;
-  background-color: black;
+  color: lightgrey;
+  background-color: #2c2f33;
+  font-family: 'Alata';
   font-size: 1.6em;
-  margin-left: 30%;
-  margin-right:30%;
+  margin-left: 2%;
+  margin-right:2%;
   padding: 20px;
 }
 
-button{
-  margin-left: 10px;
-  margin-top: 15px;
-  height: 22px;
-  font-size: 14px;
+.character_name, .stats, .strength_value, .knowledge_value, .magic_value
+{
+  color: black;
+
 }
 
-h1 a, h2 a {
-    color: purple;
-    font-family: 'Alata';
+form{
+  color: black;
+  display: inline;
 }
+
+.character1{background-image:url(https://i.imgur.com/uQ78QZ0.png);}
+.character2{background-image:url(https://i.imgur.com/nzVj1gc.png);}
+.character3{background-image:url(https://i.imgur.com/WfOgsuB.png);}
+
+.picture_row input{
+    margin:0;padding:0;
+    -webkit-appearance:none;
+       -moz-appearance:none;
+            appearance:none;
+}
+
+.picture_row input:active +.character-cc{opacity: .9;}
+.picture_row input:checked +.character-cc{
+    -webkit-filter: none;
+       -moz-filter: none;
+            filter: none;
+}
+.character-cc{
+    cursor:pointer;
+    background-size:contain;
+    background-repeat:no-repeat;
+    display:inline-block;
+    width:415px;height:278px;
+    -webkit-transition: all 100ms ease-in;
+       -moz-transition: all 100ms ease-in;
+            transition: all 100ms ease-in;
+    -webkit-filter: brightness(1.8) grayscale(1) opacity(.7);
+       -moz-filter: brightness(1.8) grayscale(1) opacity(.7);
+            filter: brightness(1.8) grayscale(1) opacity(.7);
+}
+.character-cc:hover{
+    -webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
+       -moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
+            filter: brightness(1.2) grayscale(.5) opacity(.9);
+}
+

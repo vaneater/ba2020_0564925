@@ -4,13 +4,17 @@
 	<title>Chapter 2 - Shout</title>
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-	<link rel="stylesheet" href="{% static 'css/game.css' %}">
+	<!-- <link rel="stylesheet" href="{% static 'css/game.css' %}"> -->
+	<link rel="stylesheet" type="text/css" href="../../static/game.css">
 	<link href="//fonts.googleapis.com/css?family=Alata&subset=latin,latin-ext" rel="stylesheet" type="text/css">
 </head>
+
+<body>
+
 <h2>You have made your choice!</h2>
 <p>&nbsp;</p>
 
-<div name="story">
+<div class="story">
 	<p> You have decided to shout back, answering the screams. Is someone in danger? Why are they screaming? </p>
 	<p> But there is no answer. Just what was that supposed to be anyways? Now you feel stupid for having screamed into these woods. </p>
 	<p> Suddenly, you hear some rustling coming from your right. Is someone coming your way? Maybe the person from a few moments ago.
@@ -32,7 +36,7 @@
 		It seems like your choices are very limited. </p>
 </div>
 
-<div name="stats">
+<div class="stats">
 	<!-- noch einfügen, dass es genau DEIN einer character ist -->
 	<p> Stats: {{character.character_name}} </p>
 	<p> Strength: {{character.strength}} </p>
@@ -40,24 +44,23 @@
 	<p> Knowledge: {{character.knowledge}} </p>
 </div>
 
-<div name="choices">
-
+<div class="choices">
+<br>
 <p>Now, what are you going to do, adventurer?&nbsp;</p>
+	<form action="{% url 'page_3_choice_help' %}">
+    	<input type="submit" value="Use the book" />
+	</form>
+	<form action="{% url 'page_3_choice_ask' %}">
+    	<input type="submit" value="Use the sword" />
+	</form>
+	<form action="{% url 'page_3_choice_leave' %}">
+    	<input type="submit" value="Run away" />
+	</form>
+</div>
+</body>
 
-<p>
+<!--
 	<h2><a type="button" href="{% url 'page_3_choice_help' %}">Use the book</a></h2>
 	<h2><a type="button" href="{% url 'page_3_choice_ask' %}">Use the sword</a></h2>
 	<h2><a type="button" href="{% url 'page_3_choice_leave' %}">Run away</a></h2>
-</div>
-<!--
-    <form>
-		<input type="button" value="Help the girl" onclick="'page_3_choice_help.html'" />
-	</form>
-    <form>
-		<input type="button" value="Ask her, how this situation came to be" onclick="'page_2_choice_ask.html'" />
-	</form>
-    <form>
-		<input type="button" value="Leave her be" onclick="'page_3_choice_leave.html'" />
-	</form>
 -->
-</p>

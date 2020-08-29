@@ -4,9 +4,13 @@
 	<title>Chapter 1</title>
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-	<link rel="stylesheet" href="{% static 'css/game.css' %}">
+	<!-- <link rel="stylesheet" href="{% static 'css/game.css' %}"> -->
+	<link rel="stylesheet" type="text/css" href="../../static/game.css">
 	<link href="//fonts.googleapis.com/css?family=Alata&subset=latin,latin-ext" rel="stylesheet" type="text/css">
 </head>
+
+<body>
+
 <h2>Your adventure has begun!</h2>
 <p>&nbsp;</p>
 
@@ -43,24 +47,22 @@
 </div>
 
 <div name="choices">
-
+<br>
 <p>Now, what are you going to do, adventurer?&nbsp;</p>
+	<form action="{% url 'page_2_choice_follow' %}">
+    	<input type="submit" value="Follow the voice" />
+	</form>
+		<form action="{% url 'page_2_choice_run' %}">
+    	<input type="submit" value="Run away" />
+	</form>
+		<form action="{% url 'page_2_choice_shout' %}">
+    	<input type="submit" value="Shout back at the voice" />
+	</form>
+</div>
+</body>
 
-<p>
+<!--
 	<h2><a type="button" href="{% url 'page_2_choice_follow' %}">Follow the voice</a></h2>
 	<h2><a type="button" href="{% url 'page_2_choice_run' %}">Run in the opposite direction</a></h2>
 	<h2><a type="button" href="{% url 'page_2_choice_shout' %}">Shout back at the voice</a></h2>
-
-</div>
-<!--
-    <form>
-		<input type="button" value="Follow the voice" onclick="'page_2_choice_follow.html'" />
-	</form>
-    <form>
-		<input type="button" value="Run in the opposite direction" onclick="'page_2_choice_run.html'" />
-	</form>
-    <form>
-		<input type="button" value="Shout back at the voice" onclick="'page_2_choice_shout.html'" />
-	</form>
 -->
-</p>

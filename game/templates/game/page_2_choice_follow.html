@@ -4,9 +4,13 @@
 	<title>Chapter 2 - Follow</title>
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-	<link rel="stylesheet" href="{% static 'css/game.css' %}">
+	<!-- <link rel="stylesheet" href="{% static 'css/game.css' %}"> -->
+	<link rel="stylesheet" type="text/css" href="../../static/game.css">
 	<link href="//fonts.googleapis.com/css?family=Alata&subset=latin,latin-ext" rel="stylesheet" type="text/css">
 </head>
+
+<body>
+
 <h2>You have made your choice!</h2>
 <p>&nbsp;</p>
 
@@ -36,23 +40,22 @@
 </div>
 
 <div name="choices">
-
+<br>
 <p>Now, what are you going to do, adventurer?&nbsp;</p>
+	<form action="{% url 'page_3_choice_help' %}">
+    	<input type="submit" value="Help the woman" />
+	</form>
+	<form action="{% url 'page_3_choice_ask' %}">
+    	<input type="submit" value="Ask her about this situation" />
+	</form>
+	<form action="{% url 'page_3_choice_leave' %}">
+    	<input type="submit" value="Leave her alone" />
+	</form>
+</div>
+</body>
 
-<p>
+<!--
 	<h2><a type="button" href="{% url 'page_3_choice_help' %}">Help the woman</a></h2>
 	<h2><a type="button" href="{% url 'page_3_choice_ask' %}">Ask her, how this situation came to be</a></h2>
 	<h2><a type="button" href="{% url 'page_3_choice_leave' %}">Leave her alone</a></h2>
-</div>
-<!--
-    <form>
-		<input type="button" value="Help the girl" onclick="'page_3_choice_help.html'" />
-	</form>
-    <form>
-		<input type="button" value="Ask her, how this situation came to be" onclick="'page_2_choice_ask.html'" />
-	</form>
-    <form>
-		<input type="button" value="Leave her be" onclick="'page_3_choice_leave.html'" />
-	</form>
 -->
-</p>
