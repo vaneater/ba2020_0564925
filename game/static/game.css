@@ -1,17 +1,38 @@
-body {
-  color: lightgrey;
-  background-color: #2c2f33;
-  font-family: 'Alata';
-  font-size: 1.6em;
-  margin-left: 2%;
-  margin-right:2%;
-  padding: 20px;
+.death, death
+{
+    color: darkred;
+    font-family: 'VT323', monospace;
 }
 
-.character_name, .stats, .strength_value, .knowledge_value, .magic_value
+body
 {
-  color: black;
+    color: lightgrey;
+    background-color: #2c2f33;
+    font-family: 'Alata';
+    font-size: 1.6em;
+    margin-left: 2%;
+    margin-right:2%;
+    padding: 20px;
+    float: left;
+}
 
+.name, .stats, .strength_value, .knowledge_value, .magic_value, .character
+{
+    color: lightgrey;
+
+}
+
+.right
+{
+    float: right;
+    overflow: auto;
+    color: lightgrey;
+    margin-top: 6%;
+}
+
+.heading
+{
+    margin-top: 4%;
 }
 
 form{

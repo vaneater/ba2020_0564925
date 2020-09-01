@@ -11,7 +11,26 @@
 
 <body>
 
-<h2>You have made your choice!</h2>
+<div class="right">
+
+<div id="stats" class="stats">
+	<form>
+		{% csrf_token %}
+		<p> Stats: {{ character.get_name }} </p>
+		<p> Strength: {{character.get_strength}} </p>
+		<p> Magic: {{ character.get_magic }} </p>
+		<p> Knowledge: {{character.get_knowledge}} </p>
+	</form>
+</div>
+
+<div class="pictures">
+	<a href="https://imgur.com/DQbTwQ8"><img src="https://i.imgur.com/DQbTwQ8.png" title="source: imgur.com"  alt="picture"/></a>
+	<!-- <img src="./pictures/monster.png"> -->
+
+</div>
+</div>
+
+<h2 class="heading">You have made your choice!</h2>
 <p>&nbsp;</p>
 
 <div class="story">
@@ -36,21 +55,13 @@
 		It seems like your choices are very limited. </p>
 </div>
 
-<div class="stats">
-	<!-- noch einfügen, dass es genau DEIN einer character ist -->
-	<p> Stats: {{character.character_name}} </p>
-	<p> Strength: {{character.strength}} </p>
-	<p> Magic: {{character.magic}} </p>
-	<p> Knowledge: {{character.knowledge}} </p>
-</div>
-
 <div class="choices">
 <br>
 <p>Now, what are you going to do, adventurer?&nbsp;</p>
-	<form action="{% url 'page_3_choice_help' %}">
+	<form action="{% url 'page_3_choice_book' %}">
     	<input type="submit" value="Use the book" />
 	</form>
-	<form action="{% url 'page_3_choice_ask' %}">
+	<form action="{% url 'page_3_choice_sword' %}">
     	<input type="submit" value="Use the sword" />
 	</form>
 	<form action="{% url 'page_3_choice_leave' %}">
@@ -59,8 +70,3 @@
 </div>
 </body>
 
-<!--
-	<h2><a type="button" href="{% url 'page_3_choice_help' %}">Use the book</a></h2>
-	<h2><a type="button" href="{% url 'page_3_choice_ask' %}">Use the sword</a></h2>
-	<h2><a type="button" href="{% url 'page_3_choice_leave' %}">Run away</a></h2>
--->

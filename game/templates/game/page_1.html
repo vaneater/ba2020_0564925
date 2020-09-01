@@ -11,10 +11,22 @@
 
 <body>
 
-<h2>Your adventure has begun!</h2>
+<div class="right">
+<div id="stats" class="stats">
+	<form>
+		{% csrf_token %}
+		<p> Stats: {{ character.get_name }} </p>
+		<p> Strength: {{character.get_strength}} </p>
+		<p> Magic: {{character.get_magic}} </p>
+		<p> Knowledge: {{character.get_knowledge}} </p>
+	</form>
+</div>
+</div>
+
+<h2 class="heading">Your adventure has begun!</h2>
 <p>&nbsp;</p>
 
-<div name="story">
+<div class="story">
 	<p> Your ears are buzzing. It hurts. </p>
 	<p> Different sounds enter your mind, as high pitched noise is starting to fade away. There is the rustling of the trees.  </p>
 	Their branches cracking in a strong breeze. You hear birds chirping their favorite songs. They sounds so peacful and happy.
@@ -38,15 +50,7 @@
 </div>
 
 
-<div name="stats">
-	<!-- noch einfügen, dass es genau DEIN einer character ist -->
-	<p> Stats: {{character.character_name}} </p>
-	<p> Strength: {{character.strength}} </p>
-	<p> Magic: {{character.magic}} </p>
-	<p> Knowledge: {{character.knowledge}} </p>
-</div>
-
-<div name="choices">
+<div id="choices" class="choices">
 <br>
 <p>Now, what are you going to do, adventurer?&nbsp;</p>
 	<form action="{% url 'page_2_choice_follow' %}">
@@ -61,8 +65,4 @@
 </div>
 </body>
 
-<!--
-	<h2><a type="button" href="{% url 'page_2_choice_follow' %}">Follow the voice</a></h2>
-	<h2><a type="button" href="{% url 'page_2_choice_run' %}">Run in the opposite direction</a></h2>
-	<h2><a type="button" href="{% url 'page_2_choice_shout' %}">Shout back at the voice</a></h2>
--->
+

@@ -4,17 +4,33 @@
 	<title>Chapter 2 - Follow</title>
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-	<!-- <link rel="stylesheet" href="{% static 'css/game.css' %}"> -->
 	<link rel="stylesheet" type="text/css" href="../../static/game.css">
 	<link href="//fonts.googleapis.com/css?family=Alata&subset=latin,latin-ext" rel="stylesheet" type="text/css">
 </head>
 
 <body>
 
-<h2>You have made your choice!</h2>
+<div class="right">
+<div id="stats" class="stats">
+	<form>
+		{% csrf_token %}
+		<p> Stats: {{ character.get_name }} </p>
+		<p> Strength: {{ character.get_strength }} </p>
+		<p> Magic: {{character.get_magic}} </p>
+		<p> Knowledge: {{character.get_knowledge}} </p>
+	</form>
+</div>
+
+<div class="pictures">
+	<a href="https://imgur.com/P3Au2JE"><img src="https://i.imgur.com/P3Au2JE.png"  alt="picture"/></a>
+	<!--<img src="./pictures/frau.png"> -->
+</div>
+</div>
+
+<h2 class="heading">You have made your choice!</h2>
 <p>&nbsp;</p>
 
-<div name="story">
+<div class="story">
 	<p> You have decided to follow the screams. But first, you pack up your new found things.
 	It feels weirdly familiar, tossing the backpack with the book inside over your shoulder, and securing the scabbard around your waist.
 	Is this really the first time you are handling a sword like this? </p>
@@ -31,21 +47,14 @@
 	<p> The woman starts crying. </p>
 </div>
 
-<div name="stats">
-	<!-- noch einfügen, dass es genau DEIN einer character ist -->
-	<p> Stats: {{character.character_name}} </p>
-	<p> Strength: {{character.strength}} </p>
-	<p> Magic: {{character.magic}} </p>
-	<p> Knowledge: {{character.knowledge}} </p>
-</div>
 
-<div name="choices">
+<div class="choices">
 <br>
 <p>Now, what are you going to do, adventurer?&nbsp;</p>
-	<form action="{% url 'page_3_choice_help' %}">
+	<form action="{% url 'page_3_choice_book' %}">
     	<input type="submit" value="Help the woman" />
 	</form>
-	<form action="{% url 'page_3_choice_ask' %}">
+	<form action="{% url 'page_3_choice_sword' %}">
     	<input type="submit" value="Ask her about this situation" />
 	</form>
 	<form action="{% url 'page_3_choice_leave' %}">
@@ -54,8 +63,4 @@
 </div>
 </body>
 
-<!--
-	<h2><a type="button" href="{% url 'page_3_choice_help' %}">Help the woman</a></h2>
-	<h2><a type="button" href="{% url 'page_3_choice_ask' %}">Ask her, how this situation came to be</a></h2>
-	<h2><a type="button" href="{% url 'page_3_choice_leave' %}">Leave her alone</a></h2>
--->
+

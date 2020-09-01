@@ -11,22 +11,22 @@
 
 <body>
 
+<div id="stats" class="stats">
+	<form>
+		{% csrf_token %}
+		<p> Stats: {{ character.get_name }} </p>
+		<p> Strength: {{character.get_strength}} </p>
+		<p> Magic: {{character.get_magic}} </p>
+		<p> Knowledge: {{character.get_knowledge}} </p>
+	</form>
+</div>
+
 <h2>You have made your choice!</h2>
 <p>&nbsp;</p>
 
-<p> pl</p>
-<p> ace</p>
-<p> hol</p>
-<p> der</p>
+<p class="heading"> placeholder</p>
 <p>&nbsp;</p>
 
-<div name="stats">
-	<!-- noch einfügen, dass es genau DEIN einer character ist -->
-	<p> Stats: {{character.character_name}} </p>
-	<p> Strength: {{character.strength}} </p>
-	<p> Magic: {{character.magic}} </p>
-	<p> Knowledge: {{character.knowledge}} </p>
-</div>
 <br>
 <p>Now, what are you going to do, adventurer?&nbsp;</p>
 

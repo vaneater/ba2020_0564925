@@ -16,12 +16,22 @@ hinzugefügt bzw überschrieben werden, damit sie aktuell ist -->
 	<link href="//fonts.googleapis.com/css?family=Alata&subset=latin,latin-ext" rel="stylesheet" type="text/css">
 </head>
 
-<div>
 <h2>Welcome new adventurer! It&#39;s time to introduce yourself</h2>
 
 <p>&nbsp;</p>
 
-<p>First, tell me your name.</p>
+<p>First of all, tell me your name, and show me how capable you are of these skills. </p>
+
+ <form method="post" action="{% url 'page_1' %}">
+	 {% csrf_token %}
+	 {{ page_1 }}
+	 {{ character }}
+	 {{ CreateCharacter }}
+	 {{ CharacterManage }}
+
+
+
+	<!--
 <div class="character_name"><input maxlength="20" name="character_name" size="20" type="text" /></div>
 
 <p>&nbsp;</p>
@@ -38,9 +48,9 @@ hinzugefügt bzw überschrieben werden, damit sie aktuell ist -->
 
 		<p>Knowledge:&nbsp;</p>
 	<div class="knowledge_value"><input type="number" id="knowledge_value" name="knowledge_value" value="1" max="16" /> </div>
-</div>
-<p>&nbsp;</p>
 
+<p>&nbsp;</p>
+-->
 <p>&nbsp;</p>
 <p>Lastly, choose what most suits your vision of yourself.&nbsp;</p>
 
@@ -52,32 +62,10 @@ hinzugefügt bzw überschrieben werden, damit sie aktuell ist -->
 		<input id="character3" type="radio" name="character" value="character3" />
         <label class="character-cc character3"for="character3" ></label>
 </div>
-	<!--
-		<img id="character1" src="pictures/character1.png">
-		<img id="character2" src="pictures/character2.png">
-		<img id="character3" src="pictures/character3.png">
-</div>
-<div class="button_row">
-	<input id="button1" name="character1" type="radio" src="pictures/character1.png" />
-	<input id="button2" name="character2" type="radio" />
-	<input id="button3" name="character3" type="radio" />
-</div>
-<p>&nbsp;</p>
--->
-<p>Now, are you ready to begin your story, adventurer?&nbsp; &nbsp;&nbsp;
 
-<form action="{% url 'page_1' %}">
+<p>Now, are you ready to begin your story, adventurer?&nbsp; </p>
+
     <input type="submit" value="I'm ready!" />
 </form>
-
-
-<!--
-
-	<h2><a type="button" href="{% url 'page_1' %}">I'm ready!</a></h2>
-
-	<form>
-		<input type="button" value="I'm ready!" onclick="{% url 'page_1' %}"" />
-	</form>
--->
 </body>
 </html>

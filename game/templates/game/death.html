@@ -1,0 +1,32 @@
+{% load static %}
+<html class="death">
+<head>
+	<title>Your story ends here...</title>
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" type="text/css" href="../../static/game.css">
+	<link href="//fonts.googleapis.com/css?family=VT323&display=swap" rel="stylesheet">
+	<!-- <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet"> -->
+</head>
+
+<body>
+
+<h2>Oh no...</h2>
+<p>&nbsp;</p>
+
+<div class="story">
+<p> You tried your best, you really did.</p>
+<p> But your abilities are not enough for this task. There is nothing more you can do. </p>
+<p> Your time has come to an end. This story is over. </p>
+<p> Goodbye, adventurer. </p>
+<p>&nbsp;</p>
+</div>
+
+<div name="stats">
+	<p> Stats: {{ character.name }} </p>
+	<p> Status: deceased </p>
+</div>
+<br>
+
+</body>
+</html>
