@@ -16,10 +16,23 @@
 	<form>
 		{% csrf_token %}
 		<p> Stats: {{ character.get_name }} </p>
-		<p> Strength: {{character.get_strength}} </p>
-		<p> Magic: {{character.get_magic}} </p>
-		<p> Knowledge: {{character.get_knowledge}} </p>
+		<p>  {% if character.get_character_class == "reading" %}</p>
+        	<a href="https://imgur.com/2cCV5nL"><img src="https://i.imgur.com/2cCV5nL.png" title="source: imgur.com" /></a>
+		<p> {% endif %}}</p>
+		<p> {% if  character.get_character_class == 'strength' %}</p>
+        	<a href="https://imgur.com/IPRSvsm"><img src="https://i.imgur.com/IPRSvsm.png" title="source: imgur.com" /></a>
+		<p> {% else %}</p>
+			<a href="https://imgur.com/trSTToh"><img src="https://i.imgur.com/trSTToh.png" title="source: imgur.com" /></a>
+		<p> {% endif %} </p>
 	</form>
+
+	<div class="delete">
+		<p> Tired of playing?</p>
+		<form method="POST" action="{% url 'deletecharacter' deletecharacter.pk %}">
+			{% csrf_token %}
+			<button type="submit" value="Delete current character">Delete current character</button>
+		</form>
+	</div>
 </div>
 </div>
 

@@ -1,7 +1,6 @@
-from django.shortcuts import render
-from .forms import CreateCharacter
+from django.shortcuts import render, redirect
 from .models import Character
-
+from .forms import CharacterForm
 
 
 # Create your views here.
@@ -10,9 +9,8 @@ from .models import Character
 # ob man einen neuen charakter erstellt (registrieren), oder ob
 # man mit einem bisherigen charakter weiter macht (login)
 
-
-def character_creation(request):
-    return render(request, 'game/character_creation.html', {})
+def first_start(request):
+    return render(request, 'game/first_start.html', {})
 
 
 """def page_1(request):
@@ -32,16 +30,36 @@ def character_creation(request):
 """
 
 
-def page_1(request):
-    template_name = 'game/character_creation.html'
-    form_class = CreateCharacter
-    queryset = Character.objects.all()
+def character_creation(request):
+    if request.method == "POST":
+        form = CharacterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            model = form.instance
+            #character = form.save(commit=False)
+            #character.name = request.name
+            #character.save()
+            return redirect('first_start')
+    else:
+        form = CharacterForm()
+    return render(request, 'game/character_creation.html', {'form': form})
 
-    def form_valid(self, form):
+    """def form_valid(self, form):
         print(form.cleaned_data)
         return render(request, 'game/page_1.html', {'character': Character})
 
-    return render(request, 'game/page_1.html', {'character': Character})
+    return render(request, 'game/page_1.html', {'character': Character})"""
+
+
+def deletecharacter(request, pk):
+    if request.method == 'POST':
+        character = Character.objects.get(pk=pk)
+        character.delete()
+    return redirect('first_start')
+
+
+def page_1(request):
+    return render(request, 'game/page_1.html', {})
 
 
 def page_2_choice_follow(request):
@@ -57,14 +75,14 @@ def page_2_choice_shout(request):
 
 
 def page_3_choice_book(request):
-    if Character.magic.__lt__(3):
+    if Character.get_character_class() == Character.get_character_class() == 'reading' or 'gaming':
         return render(request, 'game/page_3_choice_book.html', {})
     else:
         return render(request, 'game/death.html')
 
 
 def page_3_choice_sword(request):
-    if Character.strength.__lt__(3):
+    if Character.get_character_class() == 'exercising' or Character.get_character_class() == 'gaming':
         return render(request, 'game/page_3_choice_sword.html', {})
     else:
         return render(request, 'game/death.html')

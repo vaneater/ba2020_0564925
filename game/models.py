@@ -5,25 +5,15 @@ from django.db import models
 # python manage.py migrate game
 # machen !!!!!!!!!!!!!
 
-"""class Character(models.Model):
-    name = models.CharField(max_length=20, blank=False, default="Your Name")
-    strength = models.PositiveSmallIntegerField(default=1, max_length=16)
-    magic = models.PositiveSmallIntegerField(default=1, max_length=16)
-    knowledge = models.PositiveSmallIntegerField(default=1, max_length=16)
-
-    def start(self):
-        self.save()
-        # daten in datenbank speichern
-
-    def __str__(self):
-        return self.name"""
-
-
+"""
 class Character(models.Model):
     name = models.CharField(max_length=20, blank=False, default="Your Name")
     strength = models.PositiveSmallIntegerField(default=1, max_length=16)
     magic = models.PositiveSmallIntegerField(default=1, max_length=16)
     knowledge = models.PositiveSmallIntegerField(default=1, max_length=16)
+
+    def save_character(self):
+        self.save()
 
     def __str__(self):
         return self.name
@@ -39,14 +29,39 @@ class Character(models.Model):
 
     def get_knowledge(self):
         return self.knowledge
+"""
+
+CHARACTER_CLASS = (
+    ('reading', 'Reading'),
+    ('exercising', 'Exercising'),
+    ('gaming', 'Gaming'),
+)
+
+"""
+reading -> good in knowledge and magic
+exercising -> good in strength and knowledge 
+gaming -> good in magic and strength
+"""
 
 
-class CharacterManage(models.Model):
-    def create_character(self, name, strength, magic, knowledge):
-        if not name:
-            raise ValueError('Your Character needs to have a name!')
+class Character(models.Model):
+    name = models.CharField(max_length=20, blank=False, default="Your Name", verbose_name='What would you like to be called?')
+    characterClass = models.CharField(max_length=11, choices=CHARACTER_CLASS, blank=False, verbose_name='What kind of activity do you prefer?')
 
-        character = self.model(name=self.normalize_name(name), )
+    def __str__(self):
+        return self.name
 
-        character.save(using=self._db)
-        return character
+    def get_name(self):
+        return self.name
+
+    def get_character_class(self):
+        return self.characterClass
+
+    def start(self):
+        self.save()
+
+    def delete_character(self, *args, **kwargs):
+        self.name.delete()
+        self.characterClass.delete()
+        super().delete(*args, *kwargs)
+

@@ -15,9 +15,9 @@
 	<form>
 		{% csrf_token %}
 		<p> Stats: {{ character.get_name }} </p>
-		<p> Strength: {{character.get_strength}} </p>
+		<p> Strength: {{ character.get_strength }} </p>
 		<p> Magic: {{ character.get_magic }} </p>
-		<p> Knowledge: {{character.get_knowledge}} </p>
+		<p> Knowledge: {{ character.get_knowledge }} </p>
 	</form>
 </div>
 

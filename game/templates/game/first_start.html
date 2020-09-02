@@ -8,7 +8,7 @@ hinzugefügt bzw überschrieben werden, damit sie aktuell ist -->
 
 <html>
 <head>
-	<title>Character Creation</title>
+	<title>The beginning</title>
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 	<!-- <link rel="stylesheet" href="{% static 'css/game.css' %}"> -->
@@ -16,34 +16,37 @@ hinzugefügt bzw überschrieben werden, damit sie aktuell ist -->
 	<link href="//fonts.googleapis.com/css?family=Alata&subset=latin,latin-ext" rel="stylesheet" type="text/css">
 </head>
 
-<h2>Welcome new adventurer! It&#39;s time to introduce yourself</h2>
+<h2>Welcome new adventurer! </h2>
 
 <p>&nbsp;</p>
 
-<p>First of all, tell me a little bit about your character. </p>
+<p>Here you can create your own character, and explore an adventure. </p>
+<p>You yourself decide what will happen so try to stay safe. </p>
+<p>Follow the story and see how it unfolds! </p>
+<p>(The game finishes with the second page of dialogue, for now.) </p>
 
- <form method="POST" action="{% url 'page_1' %}">
+<div class="picture_reihe">
+    <div class="mini_picture">
+        <a href="https://imgur.com/uQ78QZ0"><img src="https://i.imgur.com/uQ78QZ0.png" title="source: imgur.com" /></a>
+        <!-- <img src="pictures/character1.png"> -->
+    </div>
+    <div class="mini_picture">
+        <a href="https://imgur.com/nzVj1gc"><img src="https://i.imgur.com/nzVj1gc.png" title="source: imgur.com" /></a>
+        <!-- <img src="pictures/character2.png"> -->
+    </div>
+    <div class="mini_picture">
+        <a href="https://imgur.com/WfOgsuB"><img src="https://i.imgur.com/WfOgsuB.png" title="source: imgur.com" /></a>
+        <!-- <img src="pictures/character3.png"> -->
+    </div>
+</div>
+
+ <form method="POST" action="{% url 'character_creation' %}">
      {% csrf_token %}
      {{ form.as_p }}
 
+<p>Are you ready for this?&nbsp;Zimzalabim! </p>
 
-
-<p>&nbsp;</p>
-<div class="picture_reihe">
-     <div class="mini_picture">
-        <a href="https://imgur.com/2cCV5nL"><img src="https://i.imgur.com/2cCV5nL.png" title="source: imgur.com" /></a>
-     </div>
-    <div class="mini_picture">
-        <a href="https://imgur.com/IPRSvsm"><img src="https://i.imgur.com/IPRSvsm.png" title="source: imgur.com" /></a>
-    </div>
-    <div class="mini_picture">
-        <a href="https://imgur.com/trSTToh"><img src="https://i.imgur.com/trSTToh.png" title="source: imgur.com" /></a>
-     </div>
-</div>
-
-<p>Now, are you ready to begin your story, adventurer?&nbsp; </p>
-
-    <button type="submit" value="I'm ready!">I'm finished!</button>
+    <button type="submit" value="I'm ready!">I'm ready!</button>
 </form>
 </body>
 </html>

@@ -35,11 +35,26 @@ body
     margin-top: 4%;
 }
 
-form{
+button, .myfieldclass{
   color: black;
   display: inline;
 }
 
+.mini_picture
+{
+    float: left;
+    width: 33.33%;
+    padding: 5px;
+}
+
+.picture_reihe::after
+{
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/*
 .character1{background-image:url(https://i.imgur.com/uQ78QZ0.png);}
 .character2{background-image:url(https://i.imgur.com/nzVj1gc.png);}
 .character3{background-image:url(https://i.imgur.com/WfOgsuB.png);}
@@ -75,4 +90,4 @@ form{
        -moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
             filter: brightness(1.2) grayscale(.5) opacity(.9);
 }
-
+*/
