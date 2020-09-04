@@ -13,23 +13,6 @@ def first_start(request):
     return render(request, 'game/first_start.html', {})
 
 
-"""def page_1(request):
-    if request.method == 'POST':
-        newcharacter = Character(request.POST)
-        if newcharacter.is_valid():
-            name = newcharacter.cleaned_data['name']
-            strength = newcharacter.cleaned_data['strength']
-            magic = newcharacter.cleaned_data['magic']
-            knowledge = newcharacter.cleaned_data['knowledge']
-            newcharacter.save()
-            return redirect('game/page_1.html', pk=newcharacter.pk)
-            print(name)
-
-    character = Character()
-    return render(request, 'game/page_1.html', {'newcharacter': newcharacter})
-"""
-
-
 def character_creation(request):
     if request.method == "POST":
         form = CharacterForm(request.POST)
@@ -45,6 +28,13 @@ def character_creation(request):
 
 def page_1(request):
     return render(request, 'game/page_1.html', {})
+
+
+def delete(request):
+    print("im delete")
+    character_to_delete = Character.objects.last()
+    character_to_delete.delete()
+    return render((request, 'game/first_start.html', {}))
 
 
 def page_2_choice_follow(request):
@@ -87,23 +77,16 @@ def page_2_choice_shout(request):
     return render(request, 'game/page_2_choice_shout.html', {'this_character_name': this_character_name})
 
 
-def page_3_choice_book(request):
-    character = Character.objects.last()
-    this_character_class = character.get_character_class()
-    if this_character_class == 'reading' or this_character_class == 'gaming':
-        return render(request, 'game/page_3_choice_book.html', {'this_character_class': this_character_class})
-    else:
-        return render(request, 'game/death.html')
+def survived(request):
+    this_character_name = Character.objects.last()
+    return render(request, 'game/survived.html', {'this_character_name': this_character_name})
 
 
-def page_3_choice_sword(request):
-    character = Character.objects.last()
-    this_character_class = character.get_character_class()
-    if this_character_class == 'exercising' or this_character_class == 'gaming':
-        return render(request, 'game/page_3_choice_sword.html', {'this_character_class': this_character_class})
-    else:
-        return render(request, 'game/death.html')
+def survived(request):
+    this_character_name = Character.objects.last()
+    return render(request, 'game/survived.html', {'this_character_name': this_character_name})
 
 
-def page_3_choice_leave(request):
-    return render(request, 'game/page_3_choice_leave.html', {})
+def death(request):
+    this_character_name = Character.objects.last()
+    return render(request, 'game/death.html', {'this_character_name': this_character_name})
