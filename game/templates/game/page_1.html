@@ -13,7 +13,7 @@
 
 <div class="right">
 <div id="stats" class="stats">
-	<form action="." method="POST">
+	<form>
 		{% csrf_token %}
 		<p> Name: {{ this_character_name }} </p>
 		<p> Status: alive </p>
@@ -21,10 +21,20 @@
 </div>
 	<div class="delete">
 		<p> ------------------</p>
-		<p> Tired of playing?</p>
-			<button type="submit" value="Delete current character">Delete current character</button>
-		</form>
+
+	<div class="pictures">
+		<a href="https://imgur.com/P3Au2JE"><img src="https://i.imgur.com/P3Au2JE.png"  alt="picture"/></a>
+		<!--<img src="./pictures/frau.png"> -->
 	</div>
+	<div class="pictures">
+		<a href="https://imgur.com/DQbTwQ8"><img src="https://i.imgur.com/DQbTwQ8.png" title="source: imgur.com"  alt="picture"/></a>
+		<!-- <img src="./pictures/monster.png"> -->
+	</div>
+	<div class="pictures">
+		<a href="https://imgur.com/c29u6LL"><img src="https://i.imgur.com/c29u6LL.png" title="source: imgur.com"  alt="picture"/></a>
+		<!-- <img src="./pictures/mann.png"> -->
+	</div>
+</div>
 </div>
 
 <h2 class="heading">Your adventure has begun!</h2>
@@ -51,20 +61,50 @@
 		Thinking nothing of it, you try to inspect the two items more, but right then you hear a scream.
 		Again, you hear a loud "HELP"...</p>
 	<p>	The voice doesn't seem to be that far away. </p>
+	<p></p>
+	<p> You have decided to shout back, answering the screams. Is someone in danger? Why are they screaming? </p>
+	<p> But there is no answer. Just what was that supposed to be anyways? Now you feel stupid for having screamed into these woods. </p>
+	<p> Suddenly, you hear some rustling coming from your right. Is someone coming your way? Maybe the person from a few moments ago.
+		This feels weird though... Weirdly dangerous. So you start to pack up your new found things.
+		It feels weirdly familiar, tossing the backpack with the book inside over your shoulder, and securing the scabbard around your waist.
+		Is this really the first time you are handling a sword like this? </p>
+	<p>	You hear footsteps coming closer and closer, there is no time to think. Someone... No, something is coming. Coming for you.
+		You quickly turn and jog to the opposite direction the steps are came from. To the direction the screams came from.
+		It's not easy making your way through the forest, trying not to trip on tree roots, or getting stuck in thick bushes. </p>
+	<p> Eventually you reach a clearing. It's empty, except for the person lying on the other side of it.
+		Noticing you, they turn around with a horrified expression on their face. It's a young woman, suddenly not looking so scared anymore.</p>
+	<p> "Adventurer! Please, aid me with your help." </p>
+	<p> You slowly walk towards her. But you start to wonder... Why would she need help, lying there all alone?
+		Doesn't this seem kind of suspicious? You slow down, thinking, and come to a stop.
+		Just what could have happened here? </p>
+	<p> "No, please! Don't leave me...", she start to sob, "You are the first person to come by, after so long...
+		You can't just... I can't..." </p>
+	<p>	Suddenly the trees around you start swaying uncontrollably. The rustling and cracking of the branches sounds scary.
+		It doesn't seem like you are safe just yet... </p>
+	<p> You have no time to think about that, as you hear a roar coming from behind you.
+		You turn around, seeing a monster emerging from the woods. You hold your breath, as it slowly walks towards you. </p>
+	<p> The woman starts crying. </p>
+	<p> This monster, something you only know from fantasy stories, is out to get you. This is definitely not good. </p>
+	<p> Panicking you look around. What are you supposed to do? What CAN you do?  </p>
+	<p> You have no time to think about that, as a figure emerges out of the other side of the woods.  </p>
+	<p> It is not safe, here it's not safe, you are not safe. This darkly dressed person emits and enormous aura of danger.
+		You notice the two daggers they are holding. This is definitely not good at all, no no no. </p>
+	<p> And then you feel warmth. Your back... the backpack, no book? And also on your side... the sword.
+		It seems like your choices are very limited. </p>
 </div>
 
 
 <div id="choices" class="choices">
 <br>
 <p>Now, what are you going to do, adventurer?&nbsp;</p>
-	<form action="{% url 'page_2_choice_follow' %}">
-    	<button type="submit" value="Follow the voice">Follow the voice </button>
+	<form action="{% url 'survived' %}">
+    	<button type="submit" value="Use the book">Use the book </button>
 	</form>
-		<form action="{% url 'page_2_choice_run' %}">
+	<form action="{% url 'survived' %}">
+    	<button type="submit" value="Use the sword">Use the sword </button>
+	</form>
+	<form action="{% url 'death' %}">
     	<button type="submit" value="Run away">Run away </button>
-	</form>
-		<form action="{% url 'page_2_choice_shout' %}">
-    	<button type="submit" value="Shout back at the voice">Shout back at the voice </button>
 	</form>
 </div>
 </body>

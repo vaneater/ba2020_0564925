@@ -56,10 +56,11 @@ class Character(models.Model):
         return self.name
 
     def get_name(self):
-        print("in model")
+        print("in model name")
         return self.name
 
     def get_character_class(self):
+        print("in model class")
         return self.characterClass
 
     def delete_character(self, *args, **kwargs):
