@@ -15,18 +15,18 @@
 <div id="stats" class="stats">
 	<form>
 		{% csrf_token %}
-		<p> Name: {{ character.get_name }} </p>
+		<p> Name: {{ this_character_name }} </p>
 		<p> Status: alive </p>
 	</form>
 </div>
 		<div class="delete">
+		<p> ------------------</p>
 		<p> Tired of playing?</p>
-		<form method="DELETE">
+		<form method="POST">
 			{% csrf_token %}
 			<button type="submit" value="Delete current character">Delete current character</button>
 		</form>
 	</div>
-</div>
 </div>
 
 <h2 class="heading">You have made your choice!</h2>

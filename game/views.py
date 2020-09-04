@@ -37,52 +37,70 @@ def character_creation(request):
             character = form.save(commit=False)
             character.save()
             this_character_name = Character.objects.get(pk=character.pk)
-            return render(request, 'game/page_1.html', {'this_character_name': this_character_name})
+            return render(request, 'game/page_1.html', {'this_character_name': this_character_name, 'pk': character.pk})
     else:
         form = CharacterForm()
     return render(request, 'game/character_creation.html', {'form': form})
-
-
-def delete_character(request, pk):
-    if request.method == 'DELETE':
-        character_to_delete = Character.objects.get(pk=pk)
-        character_to_delete.delete()
-    return redirect('first_start')
-
-
-def get_name(request, pk):
-    this_character_name = Character.objects.get(pk=pk)
-    print("nach dem versuch, jetzt return")
-    return render(request, 'game/page_1.html', {'this_character_name': this_character_name})
 
 
 def page_1(request):
     return render(request, 'game/page_1.html', {})
 
 
-def page_2_choice_follow(request, pk):
-    this_character_name = Character.objects.get(pk=pk)
-    return render(request, 'game/page_2_choice_follow.html', {})
+def page_2_choice_follow(request):
+    character = Character.objects.last()
+    this_character_name = character.get_name()
+    print("name bekommen aber was ist er")
+    if request.method == "POST":
+        print("im delete drin")
+        character_to_delete = Character.objects.get(pk=character.pk)
+        character_to_delete.delete()
+        return render(request, 'game/first_start.html', {'this_character_name': this_character_name})
+    print("im zweiten return")
+    return render(request, 'game/page_2_choice_follow.html', {'this_character_name': this_character_name})
 
 
 def page_2_choice_run(request):
-    return render(request, 'game/page_2_choice_run.html', {})
+    character = Character.objects.last()
+    this_character_name = character.get_name()
+    print("name bekommen aber was ist er")
+    if request.method == "POST":
+        print("im delete drin")
+        character_to_delete = Character.objects.get(pk=character.pk)
+        character_to_delete.delete()
+        return render(request, 'game/first_start.html', {'this_character_name': this_character_name})
+    print("im zweiten return")
+    return render(request, 'game/page_2_choice_run.html', {'this_character_name': this_character_name})
 
 
 def page_2_choice_shout(request):
-    return render(request, 'game/page_2_choice_shout.html', {})
+    character = Character.objects.last()
+    this_character_name = character.get_name()
+    this_character_class = character.get_character_class()
+    print("name bekommen aber was ist er")
+    if request.method == "POST":
+        print("im delete drin")
+        character_to_delete = Character.objects.get(pk=character.pk)
+        character_to_delete.delete()
+        return render(request, 'game/first_start.html', {'this_character_name': this_character_name})
+    print("im zweiten return")
+    return render(request, 'game/page_2_choice_shout.html', {'this_character_name': this_character_name})
 
 
 def page_3_choice_book(request):
-    if Character.get_character_class() == Character.get_character_class() == 'reading' or 'gaming':
-        return render(request, 'game/page_3_choice_book.html', {})
+    character = Character.objects.last()
+    this_character_class = character.get_character_class()
+    if this_character_class == 'reading' or this_character_class == 'gaming':
+        return render(request, 'game/page_3_choice_book.html', {'this_character_class': this_character_class})
     else:
         return render(request, 'game/death.html')
 
 
 def page_3_choice_sword(request):
-    if Character.get_character_class() == 'exercising' or Character.get_character_class() == 'gaming':
-        return render(request, 'game/page_3_choice_sword.html', {})
+    character = Character.objects.last()
+    this_character_class = character.get_character_class()
+    if this_character_class == 'exercising' or this_character_class == 'gaming':
+        return render(request, 'game/page_3_choice_sword.html', {'this_character_class': this_character_class})
     else:
         return render(request, 'game/death.html')
 

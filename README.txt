@@ -21,7 +21,6 @@ DasHierIstCoolerAlsEinBlog
 
 # Sad Things
 
-1. The Character Pictures sometimes don't show up. I do not know why.
-Switching the browser or restarting the server sometimes does the trick. Sometimes not.
+1. Some pictures sometimes don't show up until you open them individually to let them load.
 
 2. Choosing to shout at the first option is the only real way to advance (for now). Other options have not been explored (yet).
