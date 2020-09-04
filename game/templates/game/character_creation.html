@@ -17,13 +17,13 @@ hinzugefügt bzw überschrieben werden, damit sie aktuell ist -->
 </head>
 
 <h2>Welcome new adventurer! It&#39;s time to introduce yourself</h2>
-<form method="POST" action="{% url 'character_creation' %}">{% csrf_token %}
+<form method="POST" action="{% url 'character_creation' %}">
 
 <p>&nbsp;</p>
 
 <p>First of all, tell me a little bit about your character. </p>
-
-     {{ form.as_p }}
+    {% csrf_token %}
+    {{ form.as_p }}
 <p>&nbsp;</p>
 <div class="picture_reihe">
      <div class="mini_picture">

@@ -31,23 +31,15 @@ def first_start(request):
 
 
 def character_creation(request):
-    print("die request method ist:", request)
     if request.method == "POST":
         form = CharacterForm(request.POST)
-        print("vor dem if form.is_valid() ")
         if form.is_valid():
-            print("im valid yay")
             character = form.save(commit=False)
             character.save()
-            print("nach dem save")
-            print("jetzt komt der list versuch")
             this_character_name = Character.objects.get(pk=character.pk)
-            print("nach dem versuch, jetzt return")
             return render(request, 'game/page_1.html', {'this_character_name': this_character_name})
     else:
-        print("im else, falls keine post method")
         form = CharacterForm()
-    print("if request.method übersprungen")
     return render(request, 'game/character_creation.html', {'form': form})
 
 
