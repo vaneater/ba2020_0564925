@@ -14,11 +14,18 @@
 <div id="stats" class="stats">
 	<form>
 		{% csrf_token %}
-		<p> Stats: {{ character.get_name }} </p>
-		<p> Strength: {{ character.get_strength }} </p>
-		<p> Magic: {{ character.get_magic }} </p>
-		<p> Knowledge: {{ character.get_knowledge }} </p>
+		<p> Name: {{ character.get_name }} </p>
+		<p> Status: alive </p>
 	</form>
+</div>
+		<div class="delete">
+		<p> Tired of playing?</p>
+		<form method="DELETE">
+			{% csrf_token %}
+			<button type="submit" value="Delete current character">Delete current character</button>
+		</form>
+	</div>
+</div>
 </div>
 
 <div class="pictures">
@@ -52,13 +59,13 @@
 <br>
 <p>Now, what are you going to do, adventurer? </p>
 	<form action="{% url 'page_3_choice_book' %}">
-    	<input type="submit" value="Use the book" />
+    	<button type="submit" value="Use the book">Use the book</button>
 	</form>
 	<form action="{% url 'page_3_choice_sword' %}">
-    	<input type="submit" value="Use the sword" />
+    	<button type="submit" value="Use the sword">Use the sword </button>
 	</form>
 	<form action="{% url 'page_3_choice_leave' %}">
-    	<input type="submit" value="Run away" />
+    	<button type="submit" value="Run away">Run away </button>
 	</form>
 </div>
 </body>

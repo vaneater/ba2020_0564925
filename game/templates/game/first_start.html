@@ -40,10 +40,9 @@ hinzugefügt bzw überschrieben werden, damit sie aktuell ist -->
     </div>
 </div>
 
- <form method="POST" action="{% url 'character_creation' %}">
-     {% csrf_token %}
-     {{ form.as_p }}
+ <form action="{% url 'character_creation' %}">
 
+<p></p>
 <p>Are you ready for this?&nbsp;Zimzalabim! </p>
 
     <button type="submit" value="I'm ready!">I'm ready!</button>

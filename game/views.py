@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Character
 from .forms import CharacterForm
 
@@ -31,38 +31,45 @@ def first_start(request):
 
 
 def character_creation(request):
+    print("die request method ist:", request)
     if request.method == "POST":
         form = CharacterForm(request.POST)
+        print("vor dem if form.is_valid() ")
         if form.is_valid():
-            form.save()
-            model = form.instance
-            #character = form.save(commit=False)
-            #character.name = request.name
-            #character.save()
-            return redirect('first_start')
+            print("im valid yay")
+            character = form.save(commit=False)
+            character.save()
+            print("nach dem save")
+            print("jetzt komt der list versuch")
+            this_character_name = Character.objects.get(pk=character.pk)
+            print("nach dem versuch, jetzt return")
+            return render(request, 'game/page_1.html', {'this_character_name': this_character_name})
     else:
+        print("im else, falls keine post method")
         form = CharacterForm()
+    print("if request.method übersprungen")
     return render(request, 'game/character_creation.html', {'form': form})
 
-    """def form_valid(self, form):
-        print(form.cleaned_data)
-        return render(request, 'game/page_1.html', {'character': Character})
 
-    return render(request, 'game/page_1.html', {'character': Character})"""
-
-
-def deletecharacter(request, pk):
-    if request.method == 'POST':
-        character = Character.objects.get(pk=pk)
-        character.delete()
+def delete_character(request, pk):
+    if request.method == 'DELETE':
+        character_to_delete = Character.objects.get(pk=pk)
+        character_to_delete.delete()
     return redirect('first_start')
+
+
+def get_name(request, pk):
+    this_character_name = Character.objects.get(pk=pk)
+    print("nach dem versuch, jetzt return")
+    return render(request, 'game/page_1.html', {'this_character_name': this_character_name})
 
 
 def page_1(request):
     return render(request, 'game/page_1.html', {})
 
 
-def page_2_choice_follow(request):
+def page_2_choice_follow(request, pk):
+    this_character_name = Character.objects.get(pk=pk)
     return render(request, 'game/page_2_choice_follow.html', {})
 
 

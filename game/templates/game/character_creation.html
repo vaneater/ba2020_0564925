@@ -17,17 +17,13 @@ hinzugefügt bzw überschrieben werden, damit sie aktuell ist -->
 </head>
 
 <h2>Welcome new adventurer! It&#39;s time to introduce yourself</h2>
+<form method="POST" action="{% url 'character_creation' %}">{% csrf_token %}
 
 <p>&nbsp;</p>
 
 <p>First of all, tell me a little bit about your character. </p>
 
- <form method="POST" action="{% url 'page_1' %}">
-     {% csrf_token %}
      {{ form.as_p }}
-
-
-
 <p>&nbsp;</p>
 <div class="picture_reihe">
      <div class="mini_picture">
@@ -41,11 +37,10 @@ hinzugefügt bzw überschrieben werden, damit sie aktuell ist -->
      </div>
 </div>
 
-<p>Now, are you ready to begin your story, adventurer?&nbsp; </p>
+<p>Now, are you prepared to begin your story, adventurer?&nbsp; </p>
 
-    <button type="submit" value="I'm ready!">I'm finished!</button>
+    <button type="submit" value="I'm prepared!">I'm prepared!</button>
 </form>
-</body>
 </html>
 <!--
 <div class="picture_row">

@@ -35,7 +35,7 @@ body
     margin-top: 4%;
 }
 
-button, .myfieldclass{
+button, .myfieldclass, input{
   color: black;
   display: inline;
 }

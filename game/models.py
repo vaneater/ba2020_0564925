@@ -1,11 +1,12 @@
 from django.db import models
 
-# HALLO... JEDES mal wenn du diese datei änderst, dann MUSST du
-# python manage.py makemigrations game
-# python manage.py migrate game
-# machen !!!!!!!!!!!!!
-
 """
+HALLO... JEDES mal wenn du diese datei änderst, dann MUSST du
+python manage.py makemigrations game
+python manage.py migrate game
+machen !!!!!!!!!!!!!
+
+
 class Character(models.Model):
     name = models.CharField(max_length=20, blank=False, default="Your Name")
     strength = models.PositiveSmallIntegerField(default=1, max_length=16)
@@ -45,20 +46,21 @@ gaming -> good in magic and strength
 
 
 class Character(models.Model):
-    name = models.CharField(max_length=20, blank=False, default="Your Name", verbose_name='What would you like to be called?')
-    characterClass = models.CharField(max_length=11, choices=CHARACTER_CLASS, blank=False, verbose_name='What kind of activity do you prefer?')
+    name = models.CharField(max_length=20, null=False, verbose_name='What would you like to be called?')
+    characterClass = models.CharField(max_length=100, choices=CHARACTER_CLASS, null=False, verbose_name='What kind of activity do you prefer?')
+
+    def start(self):
+        self.save()
 
     def __str__(self):
         return self.name
 
     def get_name(self):
+        print("in model")
         return self.name
 
     def get_character_class(self):
         return self.characterClass
-
-    def start(self):
-        self.save()
 
     def delete_character(self, *args, **kwargs):
         self.name.delete()

@@ -11,14 +11,22 @@
 
 <body>
 
+<div class="right">
 <div id="stats" class="stats">
 	<form>
 		{% csrf_token %}
-		<p> Stats: {{ character.get_name }} </p>
-		<p> Strength: {{character.get_strength}} </p>
-		<p> Magic: {{character.get_magic}} </p>
-		<p> Knowledge: {{character.get_knowledge}} </p>
+		<p> Name: {{ character.get_name }} </p>
+		<p> Status: alive </p>
 	</form>
+</div>
+		<div class="delete">
+		<p> Tired of playing?</p>
+		<form method="DELETE">
+			{% csrf_token %}
+			<button type="submit" value="Delete current character">Delete current character</button>
+		</form>
+	</div>
+</div>
 </div>
 
 <h2>You have made your choice!</h2>
