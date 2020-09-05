@@ -1,19 +1,20 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Character
-from .forms import CharacterForm
+from .forms import CharacterForm, EmptyForm
 
-
-# Create your views here.
-
-# falls ein login vorhanden sein wird, dann hier drüber wählen,
-# ob man einen neuen charakter erstellt (registrieren), oder ob
-# man mit einem bisherigen charakter weiter macht (login)
 
 def first_start(request):
     return render(request, 'game/first_start.html', {})
 
 
 def character_creation(request):
+    """
+    Ruft in first_start.html zuerst character_creation.html auf.
+    Da es sich beim zweiten Aufruf um eine POST methode handelt, geht die Methode in das if rein.
+    Danach wird die CharacterForm aufgerufen.
+    Falls diese valid ist, wird sie gespeichert, und man wird auf page_1.html weitergeleitet.
+    Dabei wird der Name übergeben.
+    """
     if request.method == "POST":
         form = CharacterForm(request.POST)
         if form.is_valid():
@@ -26,67 +27,47 @@ def character_creation(request):
     return render(request, 'game/character_creation.html', {'form': form})
 
 
-def page_1(request):
-    return render(request, 'game/page_1.html', {})
-
-
-def delete(request):
-    print("im delete")
-    character_to_delete = Character.objects.last()
-    character_to_delete.delete()
-    return render((request, 'game/first_start.html', {}))
-
-
-def page_2_choice_follow(request):
-    character = Character.objects.last()
-    this_character_name = character.get_name()
-    print("name bekommen aber was ist er")
-    if request.method == "POST":
-        print("im delete drin")
-        character_to_delete = Character.objects.get(pk=character.pk)
-        character_to_delete.delete()
-        return render(request, 'game/first_start.html', {'this_character_name': this_character_name})
-    print("im zweiten return")
-    return render(request, 'game/page_2_choice_follow.html', {'this_character_name': this_character_name})
-
-
-def page_2_choice_run(request):
-    character = Character.objects.last()
-    this_character_name = character.get_name()
-    print("name bekommen aber was ist er")
-    if request.method == "POST":
-        print("im delete drin")
-        character_to_delete = Character.objects.get(pk=character.pk)
-        character_to_delete.delete()
-        return render(request, 'game/first_start.html', {'this_character_name': this_character_name})
-    print("im zweiten return")
-    return render(request, 'game/page_2_choice_run.html', {'this_character_name': this_character_name})
-
-
-def page_2_choice_shout(request):
-    character = Character.objects.last()
-    this_character_name = character.get_name()
-    this_character_class = character.get_character_class()
-    print("name bekommen aber was ist er")
-    if request.method == "POST":
-        print("im delete drin")
-        character_to_delete = Character.objects.get(pk=character.pk)
-        character_to_delete.delete()
-        return render(request, 'game/first_start.html', {'this_character_name': this_character_name})
-    print("im zweiten return")
-    return render(request, 'game/page_2_choice_shout.html', {'this_character_name': this_character_name})
-
-
 def survived(request):
+    """
+    Ruft in page_1.html  zuerst die survived.html auf.
+    Danach wird die eine leere EmptyForm aufgerufen, damit nichts erscheint.
+    Da es sich beim zweiten Aufruf, beim drücken auf den "Delete current character" button,
+    um eine GET methode handelt, geht die Methode in das if rein.
+    Dort wird der eigene gerade benutzte Character dann gelöscht.
+    Dabei wird der Name übergeben und man wird an den Anfang bei first_start.html weitergeleitet.
+    (Ich hab ehrlich gesagt keine Ahnung, wieso ich diese Methode so seltsam aufgebaut habe.
+    Ich habe vieles probiert, und dies hat dann letztendlich am besten funktioniert.)
+    """
     this_character_name = Character.objects.last()
-    return render(request, 'game/survived.html', {'this_character_name': this_character_name})
-
-
-def survived(request):
-    this_character_name = Character.objects.last()
+    if request.method == "GET":
+        form = EmptyForm(request.POST)
+        this_character_name.delete()
+        return render(request, 'game/first_start.html', {'this_character_name': this_character_name})
+    else:
+        form = EmptyForm()
     return render(request, 'game/survived.html', {'this_character_name': this_character_name})
 
 
 def death(request):
+    """
+    Die selbe Methode wie bei survived, nur dass man in der Story gestorben ist.
+    Ruft in page_1.html  zuerst die survived.html auf.
+    Danach wird die eine leere EmptyForm aufgerufen, damit nichts erscheint.
+    Da es sich beim zweiten Aufruf, beim drücken auf den "Delete current character" button,
+    um eine GET methode handelt, geht die Methode in das if rein.
+    Dort wird der eigene gerade benutzte Character dann gelöscht.
+    Dabei wird der Name übergeben und man wird an den Anfang bei first_start.html weitergeleitet.
+    (Ich hab ehrlich gesagt keine Ahnung, wieso ich diese Methode so seltsam aufgebaut habe.
+    Ich habe vieles probiert, und dies hat dann letztendlich am besten funktioniert.)
+    """
     this_character_name = Character.objects.last()
+    if request.method == "GET":
+        form = EmptyForm(request.POST)
+        this_character_name.delete()
+        return render(request, 'game/first_start.html', {'this_character_name': this_character_name})
+    else:
+        form = EmptyForm()
     return render(request, 'game/death.html', {'this_character_name': this_character_name})
+
+
+

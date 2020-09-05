@@ -1,17 +1,10 @@
 {% load static %}
 
-<!-- aus irgendeinem grund muss jede html datei manuell in
-ba2020_564925\myvenv\Lib\site-packages\django\contrib\admin\templates
-ba2020_564925\myvenv\Lib\site-packages\django\contrib\auth\templates\game
-hinzugefügt bzw überschrieben werden, damit sie aktuell ist -->
-
-
 <html>
 <head>
 	<title>The beginning</title>
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-	<!-- <link rel="stylesheet" href="{% static 'css/game.css' %}"> -->
 	<link rel="stylesheet" type="text/css" href="../../static/game.css">
 	<link href="//fonts.googleapis.com/css?family=Alata&subset=latin,latin-ext" rel="stylesheet" type="text/css">
 </head>
@@ -19,11 +12,6 @@ hinzugefügt bzw überschrieben werden, damit sie aktuell ist -->
 <h2>Welcome new adventurer! </h2>
 
 <p>&nbsp;</p>
-
-<p>Here you can create your own character, and explore an adventure. </p>
-<p>You yourself decide what will happen so try to stay safe. </p>
-<p>Follow the story and see how it unfolds! </p>
-<p>(The game finishes with the second page of dialogue, for now.) </p>
 
 <div class="picture_reihe">
     <div class="mini_picture">
@@ -40,9 +28,18 @@ hinzugefügt bzw überschrieben werden, damit sie aktuell ist -->
     </div>
 </div>
 
+<p>Here you can create your own character, and explore an adventure. </p>
+<p>You yourself decide what will happen so try to stay safe. </p>
+<p>Follow the story and see how it unfolds! </p>
+<p>(The game finishes with the second page of dialogue, for now.) </p>
+
+
  <form action="{% url 'character_creation' %}">
 
 <p></p>
+     <a href="https://imgur.com/bcV92KZ"><img src="https://i.imgur.com/bcV92KZ.png" title="source: imgur.com" /></a>
+     <!-- <img src="pictures/first.png"> -->
+     <p></p>
 <p>Are you ready for this?&nbsp;Zimzalabim! </p>
 
     <button type="submit" value="I'm ready!">I'm ready!</button>

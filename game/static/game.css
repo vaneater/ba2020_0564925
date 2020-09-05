@@ -10,10 +10,9 @@ body
     float: left;
 }
 
-.name, .stats, .strength_value, .knowledge_value, .magic_value, .character
+.stats
 {
     color: lightgrey;
-
 }
 
 .right
@@ -22,6 +21,7 @@ body
     overflow: auto;
     color: lightgrey;
     margin-top: 6%;
+    margin-left: 5%;
 }
 
 .heading
@@ -29,7 +29,8 @@ body
     margin-top: 4%;
 }
 
-button, .myfieldclass, input{
+button, .myfieldclass, input
+{
   color: black;
   display: inline;
 }

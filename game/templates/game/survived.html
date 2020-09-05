@@ -1,7 +1,7 @@
 {% load static %}
 <html class="death">
 <head>
-	<title>Your story ends here...</title>
+	<title>Your story ends here... for now</title>
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 	<link rel="stylesheet" type="text/css" href="../../static/game.css">
@@ -10,10 +10,10 @@
 
 <body>
 <div class="right">
-	<form method="POST" action="{% url 'delete' %}" >
+	<form method="GET" action="{% url 'survived' %}" >
 		{% csrf_token %}
-		<p> Tired of playing?</p>
-			<button type="submit" value="Delete current character">Delete current character</button>
+		<p> Tired of playing? How about restarting? </p>
+		<button type="submit" value="Delete current character">Delete current character</button>
 	</form>
 </div>
 
@@ -29,10 +29,10 @@
 </div>
 
 <div name="stats">
+<form>
 	<p> Name: {{ this_character_name }} </p>
 	<p> Status: Legend </p>
+</form>
 </div>
-<br>
-
 </body>
 </html>

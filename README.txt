@@ -24,3 +24,5 @@ DasHierIstCoolerAlsEinBlog
 1. Some pictures sometimes don't show up until you open them individually to let them load.
 
 2. Choosing to shout at the first option is the only real way to advance (for now). Other options have not been explored (yet).
+
+3. Choosing an activity has no effect on the story (yet).

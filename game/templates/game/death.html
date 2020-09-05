@@ -10,10 +10,10 @@
 
 <body>
 <div class="right">
-	<form method="POST" action="{% url 'delete' %}" >
+	<form method="GET" action="{% url 'death' %}" >
 		{% csrf_token %}
 		<p> Tired of playing?</p>
-			<button type="submit" value="Delete current character">Delete current character</button>
+		<button type="submit" value="Delete current character">Delete current character</button>
 	</form>
 </div>
 
@@ -29,10 +29,10 @@
 </div>
 
 <div name="stats">
+<form>
 	<p> Name: {{ this_character_name }} </p>
 	<p> Status: deceased </p>
+</form>
 </div>
-<br>
-
 </body>
 </html>
