@@ -33,7 +33,7 @@ def survived(request):
     Danach wird die eine leere EmptyForm aufgerufen, damit nichts erscheint.
     Da es sich beim zweiten Aufruf, beim drücken auf den "Delete current character" button,
     um eine GET methode handelt, geht die Methode in das if rein.
-    Dort wird der eigene gerade benutzte Character dann gelöscht.
+    Dort wird der zuletzt erstelle Character dann gelöscht.
     Dabei wird der Name übergeben und man wird an den Anfang bei first_start.html weitergeleitet.
     (Ich hab ehrlich gesagt keine Ahnung, wieso ich diese Methode so seltsam aufgebaut habe.
     Ich habe vieles probiert, und dies hat dann letztendlich am besten funktioniert.)
@@ -55,7 +55,7 @@ def death(request):
     Danach wird die eine leere EmptyForm aufgerufen, damit nichts erscheint.
     Da es sich beim zweiten Aufruf, beim drücken auf den "Delete current character" button,
     um eine GET methode handelt, geht die Methode in das if rein.
-    Dort wird der eigene gerade benutzte Character dann gelöscht.
+    Dort wird der zuletzt erstelle Character dann gelöscht.
     Dabei wird der Name übergeben und man wird an den Anfang bei first_start.html weitergeleitet.
     (Ich hab ehrlich gesagt keine Ahnung, wieso ich diese Methode so seltsam aufgebaut habe.
     Ich habe vieles probiert, und dies hat dann letztendlich am besten funktioniert.)
