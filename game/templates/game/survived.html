@@ -10,21 +10,24 @@
 
 <body>
 <div class="right">
-	<form method="GET" action="{% url 'survived' %}" >
-		{% csrf_token %}
-		<p> Tired of playing? How about restarting? </p>
-		<button type="submit" value="Delete current character">Delete current character</button>
-	</form>
+	<div id="stats" class="stats">
+		<form method="GET" action="{% url 'survived' %}" >
+			{% csrf_token %}
+			<p> Tired of playing? </p>
+			<p> How about restarting? </p>
+			<button type="submit" value="Delete current character">Delete current character</button>
+		</form>
+	</div>
 </div>
 
-<h2>A Survivor</h2>
+<h2>Survivor</h2>
 <p>&nbsp;</p>
 
 <div class="story">
 <p> Good job!</p>
-<p> You survived the attacks and were able to fight back.  </p>
-<p> Their time has come to an end. Their story is over. </p>
-<p> Your story continues. Nicely done, adventurer. </p>
+<p> You survived the attacks and were able to fight back, defeating everyone and everything that came your way.  </p>
+<p> Their time has come to an end. Their story is over. Your story continues. </p>
+<p> Nicely done, adventurer. </p>
 <p>&nbsp;</p>
 </div>
 

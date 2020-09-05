@@ -10,11 +10,14 @@
 
 <body>
 <div class="right">
-	<form method="GET" action="{% url 'death' %}" >
-		{% csrf_token %}
-		<p> Tired of playing?</p>
-		<button type="submit" value="Delete current character">Delete current character</button>
-	</form>
+	<div id="stats" class="stats">
+		<form method="GET" action="{% url 'death' %}" >
+			{% csrf_token %}
+			<p> Tired of playing? </p>
+			<p> How about restarting? </p>
+			<button type="submit" value="Delete current character">Delete current character</button>
+		</form>
+	</div>
 </div>
 
 <h2>Oh no...</h2>
