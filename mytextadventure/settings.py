@@ -113,5 +113,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'game/static')
+STATIC_URL = 'game/static/'
+if DEBUG:
+    STATIC_ROOT = os.path.join(BASE_DIR, 'game/static')
+else:
+    STATIC_ROOT = os.path.join(BASE_DIR, 'game/static')

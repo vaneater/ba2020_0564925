@@ -18,8 +18,6 @@ DasHierIstCoolerAlsEinBlog
 
 # Sad Things
 
-1. Some pictures sometimes don't show up until you open them individually to let them load.
+1. Choosing an activity has no effect on the story (yet).
 
-2. Choosing an activity has no effect on the story (yet).
-
-3. Don't use this Application simultaneously, since that will sadly cause errors.
+2. Don't use this Application simultaneously, since that will sadly cause errors.
