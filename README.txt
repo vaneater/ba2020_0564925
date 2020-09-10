@@ -21,3 +21,6 @@ DasHierIstCoolerAlsEinBlog
 1. Choosing an activity has no effect on the story (yet).
 
 2. Don't use this Application simultaneously, since that will sadly cause errors.
+
+3. The Django Admin Application can't access the CSS in the current mode (DEBUG = False).
+If you want to use the Admin Menu with CSS, you need to go to ba2020_564925/mytextadventure/settings.py and change the Debug setting to "DEBUG = True".
